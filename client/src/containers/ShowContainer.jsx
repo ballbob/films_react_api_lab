@@ -1,6 +1,7 @@
 import React from 'react'
 import ShowSelector from '../components/ShowSelector'
 import ShowDetails from '../components/ShowDetails'
+import ShowSearch from '../components/ShowSearch'
 
 class ShowContainer extends React.Component{
 
@@ -8,12 +9,17 @@ class ShowContainer extends React.Component{
     super(props)
     this.state = {
       films: [],
-      selectedFilm: null
+      selectedFilm: null,
+      searchActor: "Nicolas Cage"
     }
   }
 
   componentDidMount(){
-    const url = "http://netflixroulette.net/api/api.php?actor=Nicolas%20Cage"
+    this.makeRequest()
+  }
+
+  makeRequest(){
+    const url = "http://netflixroulette.net/api/api.php?actor=" + this.state.searchActor
     const request = new XMLHttpRequest()
     request.open("GET", url)
 
@@ -31,11 +37,17 @@ class ShowContainer extends React.Component{
     this.setState({selectedFilm: film})
   }
 
+  handleSearchSubmit(actor){
+    this.setState({ searchActor: actor })
+    this.makeRequest()
+  }
+
   render(){
     return(
       <div id="container">
         <ShowSelector films={this.state.films} setSelectedFilm={this.setSelectedFilm.bind(this)}/>
        <ShowDetails film={this.state.selectedFilm} />
+       <ShowSearch handleSubmit={this.handleSearchSubmit.bind(this)} />
       </div>
     )
   }
