@@ -1,5 +1,6 @@
 import React from 'react'
 import ShowSelector from '../components/ShowSelector'
+import ShowDetails from '../components/ShowDetails'
 
 class ShowContainer extends React.Component{
 
@@ -26,9 +27,16 @@ class ShowContainer extends React.Component{
     request.send()
   }
 
+  setSelectedFilm(film){
+    this.setState({selectedFilm: film})
+  }
+
   render(){
     return(
-      <ShowSelector films={this.state.films}/>
+      <div>
+        <ShowSelector films={this.state.films} setSelectedFilm={this.setSelectedFilm.bind(this)}/>
+       <ShowDetails film={this.state.selectedFilm} />
+      </div>
     )
   }
 }

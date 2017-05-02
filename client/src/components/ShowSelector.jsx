@@ -1,4 +1,5 @@
 import React from 'react'
+import ShowDetails from './ShowDetails'
 
 class ShowSelector extends React.Component{
 
@@ -7,6 +8,12 @@ class ShowSelector extends React.Component{
     this.state = {
       selectedIndex: 0
     }
+  }
+
+  handleChange(event){
+    this.setState({selectedIndex: event.target.value})
+    const selectedFilm = this.props.films[event.target.value]
+    this.props.setSelectedFilm(selectedFilm)
   }
 
   render(){
