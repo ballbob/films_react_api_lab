@@ -1,4 +1,5 @@
 import React from 'react'
+import ShowSelector from '../components/ShowSelector'
 
 class ShowContainer extends React.Component{
 
@@ -28,7 +29,7 @@ class ShowContainer extends React.Component{
 
   render(){
     return(
-      <p>This is the show container.</p>
+      <ShowSelector />
       )
   }
 }
