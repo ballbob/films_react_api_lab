@@ -15,11 +15,12 @@ class ShowContainer extends React.Component{
   }
 
   componentDidMount(){
-    this.makeRequest()
+    this.makeRequest(this.state.searchActor)
   }
 
-  makeRequest(){
-    let url = "http://netflixroulette.net/api/api.php?actor=" + this.state.searchActor
+  makeRequest(actor){
+    let url = "http://netflixroulette.net/api/api.php?actor=" + actor
+    console.log(url)
     let request = new XMLHttpRequest()
     request.open("GET", url)
 
@@ -27,7 +28,8 @@ class ShowContainer extends React.Component{
       if(request.status === 200){
         let jsonString = request.responseText
         let films = JSON.parse(jsonString)
-        this.setState( {films: films, selectedFilm: films[0]} )
+        console.log('films', films[0])
+        this.setState( {films: films, selectedFilm: films[0], searchActor: actor} )
         console.log('loaded', this.state.films[0])
       }
     }
@@ -39,8 +41,7 @@ class ShowContainer extends React.Component{
   }
 
   handleSearchSubmit(actor){
-    this.setState({ searchActor: actor })
-    this.makeRequest()
+    this.makeRequest(actor)
   }
 
   render(){
