@@ -19,15 +19,16 @@ class ShowContainer extends React.Component{
   }
 
   makeRequest(){
-    const url = "http://netflixroulette.net/api/api.php?actor=" + this.state.searchActor
-    const request = new XMLHttpRequest()
+    let url = "http://netflixroulette.net/api/api.php?actor=" + this.state.searchActor
+    let request = new XMLHttpRequest()
     request.open("GET", url)
 
     request.onload = () => {
       if(request.status === 200){
-        const jsonString = request.responseText
-        const films = JSON.parse(jsonString)
+        let jsonString = request.responseText
+        let films = JSON.parse(jsonString)
         this.setState( {films: films, selectedFilm: films[0]} )
+        console.log('loaded', this.state.films[0])
       }
     }
     request.send()
