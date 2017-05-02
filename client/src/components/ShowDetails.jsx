@@ -11,8 +11,11 @@ class ShowDetails extends React.Component {
     return (
       <div id="film-detail">
 
-        <img src={this.props.film.poster}/>
+        <div id="poster">
+          <img id="poster-img" src={this.props.film.poster}/>
+        </div>
 
+        <div id ="details">
         <h4>
           {this.props.film.show_title}
         </h4>
@@ -34,11 +37,15 @@ class ShowDetails extends React.Component {
         </p>
 
         <p>
-          Runtime: {this.props.film.runtime}
+          Synopsis: {this.props.film.summary}
         </p>
 
+        <p>
+          Runtime: {this.props.film.runtime}
+        </p>
+        </div>
       </div>
-      
+
       )
   }
 

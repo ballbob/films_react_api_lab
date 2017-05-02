@@ -4,7 +4,7 @@ import ShowContainer from './containers/ShowContainer'
 
 window.onload = function () {
   ReactDOM.render(
-    <ShowContainer />,
+    <ShowContainer className="show-container"/>,
     document.getElementById('app')
   );
 };

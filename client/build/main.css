@@ -1,3 +1,33 @@
-body{
-  font-family: Helvetica
+html{
+  background-color: black;
+  color: orchid;
 }
+
+body{
+  font-family: Helvetica;
+}
+
+#container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+select{
+  display: flex;
+  text-align: center;
+}
+
+#poster{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+#film-detail{
+  padding: 50px;
+  margin: 0 auto;
+  width:50%;
+  border: darkorchid 2px solid;
+}
+

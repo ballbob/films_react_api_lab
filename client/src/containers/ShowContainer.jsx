@@ -33,7 +33,7 @@ class ShowContainer extends React.Component{
 
   render(){
     return(
-      <div>
+      <div id="container">
         <ShowSelector films={this.state.films} setSelectedFilm={this.setSelectedFilm.bind(this)}/>
        <ShowDetails film={this.state.selectedFilm} />
       </div>
