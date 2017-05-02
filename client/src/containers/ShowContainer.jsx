@@ -20,7 +20,6 @@ class ShowContainer extends React.Component{
       if(request.status === 200){
         const jsonString = request.responseText
         const films = JSON.parse(jsonString)
-        console.log(films)
         this.setState( {films: films, selectedFilm: films[0]} )
       }
     }
@@ -29,8 +28,8 @@ class ShowContainer extends React.Component{
 
   render(){
     return(
-      <ShowSelector />
-      )
+      <ShowSelector films={this.state.films}/>
+    )
   }
 }
 
