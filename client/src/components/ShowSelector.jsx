@@ -8,6 +8,7 @@ class ShowSelector extends React.Component{
     this.state = {
       selectedIndex: 0
     }
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event){
@@ -23,7 +24,7 @@ class ShowSelector extends React.Component{
     })
 
     return(
-      <select id="films" value={this.state.selectedIndex}>
+      <select id="films" value={this.state.selectedIndex} onChange={this.handleChange}>
         {options}
       </select>
       )

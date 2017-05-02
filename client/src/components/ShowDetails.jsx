@@ -13,6 +13,15 @@ class ShowDetails extends React.Component {
         <h4>
           {this.props.film.show_title}
         </h4>
+        <p>
+          Released: {this.props.film.release_year}
+        </p>
+        <p>
+          Rating: {this.props.film.rating}
+        </p>
+        <p>
+          Cast: {this.props.film.show_cast}
+        </p>
       </div>
       )
   }
